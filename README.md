@@ -25,7 +25,7 @@ The following scripts were used to perform specific analyses on the integrated d
 1. Differential cell type proportions ()
 2. Gene set enrichment analysis ()
 3. EMT scoring ()
-4. Cell-cell communication prediction with CellPhoneDB ()
+4. Cell-cell communication prediction with CellPhoneDB (CPDB_Prep.R, CPDB_Run.sh, CPDB_Post.R)
 
 #### Accessory Files and Scripts
 The following scripts and files are needed for running some of the above scripts. These include:
