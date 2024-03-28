@@ -36,4 +36,4 @@ The following scripts and files are needed for running some of the above scripts
 2. Signature genes for EMT scoring. The set described in the paper is the second column (EMT_signatures.xlsx)
 3. Functions used in gene scoring, prior to modification, from Single-cell_BPDCN_Functions.R at https://github.com/petervangalen/Single-cell_BPDCN/ (200116_FunctionsGeneral.R)
 
-#####Note: All additional figure panels were generated outside R (e.g., in Prism) and the code is not included in this repository.
+##### Note: All additional figure panels were generated outside R (e.g., in Prism) and the code is not included in this repository.
