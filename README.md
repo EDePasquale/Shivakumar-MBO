@@ -1,11 +1,14 @@
 # Shivakumar-MBO
-Code for analysis and figure generation for Ayabe et al. 2024
 
 ## Paper Citation
 [to be determined]
 
 ## Project Description
-In this project, the authors 
+In this project, the authors investigate the pathogenesis of biliary atresia (BA) by creating and sequencing patient-derived multilineage biliary organoids (MBO). Bulk RNA sequencing and single-cell RNA sequencing were used to investigate markers of epithelial-mesenchymal transition (EMT) in these MBOs. 
+
+[[Insert a few lines about what we did for Bulk here]] 
+
+For the single-cell portion of the paper, we used Cell Ranger to generate gene-by-cell expression matrices, SoupX to correct for ambient RNAs, and Seurat to perform QC and data integration, as well as most of the plots and statistics. In addition to generating the integrated dataset, we quantified differential cell type proportions between BA MBOs and normal control (NC) MBOs with Seurat, performed gene set enrichment using Enrichr, scored cells for known EMT transcriptional markers, and used CellPhoneDB to predict cell-cell communication.
 
 ## Processing Steps
 ### Bulk RNA Sequencing Scripts
@@ -14,7 +17,7 @@ In this project, the authors
 
 #### Main scRNAseq Pipeline
 The following scripts were used to perform the following basic tasks to generate the integrated dataset:
-1. CellRanger (cellranger6.sh, run.sh)
+1. Cell Ranger (cellranger6.sh, run.sh)
 2. SoupX (SoupX.sh and .R)
 3. QC and filtering (QC_and_Filtering.sh and .R)
 4. Make Seurat objects (Seurat.sh and .R)
@@ -30,4 +33,7 @@ The following scripts were used to perform specific analyses on the integrated d
 #### Accessory Files and Scripts
 The following scripts and files are needed for running some of the above scripts. These include:
 1. Gene information metadata sheet, needed for QC and filtering (gene_info_GRCh38_PvG200204.txt)
+2. Signature genes for EMT scoring. The set described in the paper is the second column (EMT_signatures.xlsx)
+3. Functions used in gene scoring, prior to modification, from Single-cell_BPDCN_Functions.R at https://github.com/petervangalen/Single-cell_BPDCN/ (200116_FunctionsGeneral.R)
 
+#####Note: All additional figure panels were generated outside R (e.g., in Prism) and the code is not included in this repository.
