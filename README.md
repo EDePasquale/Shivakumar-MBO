@@ -22,9 +22,9 @@ The following scripts were used to perform the following basic tasks to generate
 
 #### Additional Analysis
 The following scripts were used to perform specific analyses on the integrated dataset:
-1. Differential cell type proportions ()
-2. Gene set enrichment analysis ()
-3. EMT scoring ()
+1. Differential cell type proportions (UMAP_and_Differential_Proportions.R)
+2. Gene set enrichment analysis (Enrichr.R)
+3. EMT scoring and statistics (EMT_Scoring.R)
 4. Cell-cell communication prediction with CellPhoneDB (CPDB_Prep.R, CPDB_Run.sh, CPDB_Post.R)
 
 #### Accessory Files and Scripts
