@@ -6,12 +6,16 @@
 ## Project Description
 In this project, the authors investigate the pathogenesis of biliary atresia (BA) by creating and sequencing patient-derived multilineage biliary organoids (MBO). Bulk RNA sequencing and single-cell RNA sequencing were used to investigate markers of epithelial-mesenchymal transition (EMT) in these MBOs. 
 
-[[Insert a few lines about what we did for Bulk here]] 
+For the bulk RNAseq, we performed quality assessment and pre-processing using FASTQC, Trim Galore, Cutadapt, and SAMtools. We aligned the reads to hg38 genome using Bowtie2 and removed low-quality alignments and PCR duplicates using SAMtools and Picard MarkDuplicates. We quantified gene expression using htseq-count, analyzed differential expression using DESeq2, and performed PCA using FactoMineR. PCAs, box plots, heatmaps and volcano plots were visualized using ggplot2, pheatmap and EnhancedVolcano.
 
 For the single-cell portion of the paper, we used Cell Ranger to generate gene-by-cell expression matrices, SoupX to correct for ambient RNAs, and Seurat to perform QC and data integration, as well as most of the plots and statistics. In addition to generating the integrated dataset, we quantified differential cell type proportions between BA MBOs and normal control (NC) MBOs with Seurat, performed gene set enrichment using Enrichr, scored cells for known EMT transcriptional markers, and used CellPhoneDB to predict cell-cell communication.
 
 ## Processing Steps
 ### Bulk RNA Sequencing Scripts
+
+#### Main Bulk RNAseq Pipeline
+The following script was used to process all bulk RNAseq data and to generate figures:
+1. All analyses and figure generation (bulk_analysis.R)
 
 ### Single Cell RNA Sequencing Scripts
 
