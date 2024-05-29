@@ -11,6 +11,8 @@ In this project, the authors investigate the pathogenesis of biliary atresia (BA
 
 For the bulk RNAseq, we performed quality assessment and pre-processing using FASTQC, Trim Galore, Cutadapt, and SAMtools. We aligned the reads to hg38 genome using Bowtie2 and removed low-quality alignments and PCR duplicates using SAMtools and Picard MarkDuplicates. We quantified gene expression using htseq-count, analyzed differential expression using DESeq2, and performed PCA using FactoMineR. PCAs, box plots, heatmaps and volcano plots were visualized using ggplot2, pheatmap and EnhancedVolcano.
 
+For the proteomics data, we analyzed differential expression using stats and visualized heatmap using pheatmap.
+
 For the single-cell portion of the paper, we used Cell Ranger to generate gene-by-cell expression matrices, SoupX to correct for ambient RNAs, and Seurat to perform QC and data integration, as well as most of the plots and statistics. In addition to generating the integrated dataset, we quantified differential cell type proportions between BA MBOs and normal control (NC) MBOs with Seurat, performed gene set enrichment using Enrichr, scored cells for known EMT transcriptional markers, and used CellPhoneDB to predict cell-cell communication.
 
 ## Processing Steps
@@ -19,6 +21,11 @@ For the single-cell portion of the paper, we used Cell Ranger to generate gene-b
 #### Main Bulk RNAseq Pipeline
 The following script was used to process all bulk RNAseq data and to generate figures:
 1. All analyses and figure generation (bulk_analysis.R)
+
+### Proteomics Scripts
+The following files include codes for specific analyses on proteomics:
+1. Proteomics_analysis_code.R
+2. heatmap_code.R
 
 ### Single Cell RNA Sequencing Scripts
 
