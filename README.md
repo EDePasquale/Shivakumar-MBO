@@ -5,6 +5,7 @@
 
 ## Stable Code Release
 Release 1.0.0: [![DOI](https://zenodo.org/badge/777389401.svg)](https://zenodo.org/doi/10.5281/zenodo.10932740)
+
 Release 1.0.1: [![DOI](https://zenodo.org/badge/777389401.svg)](https://zenodo.org/doi/10.5281/zenodo.11387118)
 
 ## Project Description
