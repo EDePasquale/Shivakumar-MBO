@@ -88,8 +88,52 @@ pdf("CellTypeFrequencies_byDiagnosis_Hiro_merged_errorbars.pdf", width = 6, heig
 par(mar = c(6,10,2,4), xpd = T)
   X=barplot(height=t(as.matrix(data[nrow(data):1,])), beside=T, col = rev(new_colors), horiz=T, las=1, xlab="Proportion (%)")
   error.bar(X,t(as.matrix(data[nrow(data):1,])), data_SD)
-  legend(x="bottomright", legend=c("Control", "Biliary Atresia"), fill=new_colors[1:2])
+  legend(x="bottomright", legend=c("NC", "BA"), fill=c("gray78", "gray32"))
 dev.off()
+
+##### 
+# Do it with ggplot
+data_sample=rbind(data_sample[5:8,], data_sample[1:4,])
+data_sample=cbind(sample=row.names(data_sample), data_sample)
+new_data_sample=reshape2::melt(data_sample, id.vars = "sample")
+colnames(new_data_sample)=c("Sample", "Cluster", "Frequency")
+new_data_sample=new_data_sample[-c(1:8),]
+new_data_sample2=cbind(new_data_sample, Group=rep(c(rep("BA", 4), rep("NC", 4)),9))
+new_data_sample3=new_data_sample2[,c(2:4)]
+row.names(new_data_sample3)<-NULL
+new_data_sample3$Frequency<-as.numeric(new_data_sample3$Frequency)
+knitr::kable(head(new_data_sample3))
+#   |Cluster     | Frequency|Group |
+#   |:-----------|---------:|:-----|
+#   |Endothelial | 16.080247|BA    |
+#   |Endothelial | 17.309472|BA    |
+#   |Endothelial |  5.285776|BA    |
+#   |Endothelial | 14.035793|BA    |
+#   |Endothelial |  2.107728|NC    |
+#   |Endothelial |  6.536388|NC    |
+
+new_colors_2=new_colors[c(2,1,4,3,6,5,8,7,10,9,12,11,14,13,16,15,18,17)]
+
+p1=ggplot(new_data_sample3, aes(x=reorder(Cluster, Frequency), y=Frequency, fill=interaction(Group, Cluster))) + 
+  geom_boxplot(outlier.color=NA) +
+  geom_dotplot(binaxis="y", binwidth=0.5, stackdir="center", dotsize=2, position = position_dodge(width = 0.75)) +
+  coord_flip() +
+  scale_fill_manual(values=new_colors_2) +
+  xlab(NULL) +
+  theme_bw() +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())  +
+  theme(legend.position="none")
+
+pdf("CellTypeFrequencies_byDiagnosis_Hiro_merged_ggplot.pdf", width = 6, height = 5)
+par(mar = c(6,10,2,4), xpd = T)
+print(p1)
+dev.off()
+
+#######
 
 # Make proportion plots by diagnosis
 data_long=as.data.frame(cbind(Donor=M@meta.data[["Donor"]], Cluster=as.character(M@meta.data[["merged_clusters"]])))
