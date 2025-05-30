@@ -8,6 +8,10 @@ Release 1.0.0: [![DOI](https://zenodo.org/badge/777389401.svg)](https://zenodo.o
 
 Release 1.0.1: [![DOI](https://zenodo.org/badge/777389401.svg)](https://zenodo.org/doi/10.5281/zenodo.11387118)
 
+Release 1.0.2: [![DOI](https://zenodo.org/badge/777389401.svg)](https://zenodo.org/doi/10.5281/zenodo.15556238)
+
+
+
 ## Project Description
 In this project, the authors investigate the pathogenesis of biliary atresia (BA) by creating and sequencing patient-derived multilineage biliary organoids (MBO). Bulk RNA sequencing and single-cell RNA sequencing were used to investigate markers of epithelial-mesenchymal transition (EMT) in these MBOs. 
 
